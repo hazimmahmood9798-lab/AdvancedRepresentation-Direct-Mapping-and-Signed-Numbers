@@ -1,11 +1,11 @@
-// main.c - Assignment 2 test runner (reuses A1 test framework pattern)
+// main.c - Assignment 2 test runner 
 // Reads test cases from a text file (default: a2_test.txt) with lines:
 //   function_name input [input2] expected_output
 // Lines beginning with '#' and blank lines are ignored.
 //
 // Example output (per spec):
 //   Test 1: oct_to_bin("725") -> Expected: "111010101", Got: "111010101" [PASS]
-//   Summary: 60/60 tests passed
+//   Summary: 51/51 tests passed
 //
 // Build: gcc -Wall -Wextra -O2 -o run main.c convert.c
 // Usage: ./run [path/to/testfile]
@@ -22,7 +22,7 @@
 typedef struct {
     char function_name[64];
     char input1[1024];
-    char input2[1024];   // not used for this assignment, but kept for reuse
+    char input2[1024];   
     char expected[2048];
     int has_input2;
 } TestCase;
@@ -52,7 +52,7 @@ static int parse_line(const char *line, TestCase *tc) {
     strncpy(tc->input1, tok, sizeof(tc->input1)-1);
     tc->input1[sizeof(tc->input1)-1] = '\0';
 
-    // Optional input2 (not used in A2 spec, but we allow it)
+    // Optional input2 
     tok = strtok_r(NULL, " \t\r\n", &save);
     if (!tok) return 0;
     // Peek ahead to see if there are two inputs (i.e., function needing two args)
