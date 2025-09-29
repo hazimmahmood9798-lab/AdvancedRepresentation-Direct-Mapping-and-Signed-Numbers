@@ -145,8 +145,7 @@ void to_sign_magnitude(int32_t n, char *out) {
     uint32_t mag;
     if (n == INT32_MIN) {
         // 0x80000000 cannot be represented in 31 magnitude bits in sign-magnitude.
-        // We'll set sign bit and leave magnitude zero (documented limitation).
-        // (Not used in provided tests.)
+        // We'll set sign bit and leave magnitude zero 
         mag = 0;
     } else {
         mag = (uint32_t)(-n);
