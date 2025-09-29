@@ -28,7 +28,7 @@ typedef struct {
 } TestCase;
 
 static int parse_line(const char *line, TestCase *tc) {
-    // skip comments/blank
+
     const char *p = line;
     while (*p && isspace((unsigned char)*p)) ++p;
     if (*p == '\0' || *p == '#') return 0;
@@ -142,6 +142,11 @@ int main(int argc, char **argv) {
 
         if (is_pass) ++passed;
     }
+
+    fclose(f);
+    printf("Summary: %d/%d tests passed\n", passed, total);
+    return (passed == total) ? 0 : 2;
+}
 
     fclose(f);
     printf("Summary: %d/%d tests passed\n", passed, total);
