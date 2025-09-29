@@ -43,7 +43,7 @@ static unsigned nibble_from_hex(char c) {
     if (c >= '0' && c <= '9') return (unsigned)(c - '0');
     c = (char)toupper((unsigned char)c);
     if (c >= 'A' && c <= 'F') return (unsigned)(10 + (c - 'A'));
-    // Treat invalid as 0 (inputs are assumed valid per assignment)
+    // Treat invalid as 0 
     return 0;
 }
 
